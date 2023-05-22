@@ -1,0 +1,55 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 mx-auto bg-secondary">
+            <form class="my-5" #loginform="ngForm" (ngSubmit)="submitLoginForm(loginform)">
+                <div class="mb-3">
+                  <label for="exampleInputEmail1 " class="form-label text-white">Email address</label>
+                  <input type="email" 
+                  name="logname"
+                  ngModel
+                  #logname="ngModel"
+                  class="form-control" 
+                  id="exampleInputEmail1" 
+                  required
+                  min="3"
+                  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                  aria-describedby="emailHelp">
+
+
+                  <div id="emailHelp" class="form-text text-danger" *ngIf="logname.touched&&logname.invalid">
+
+                    <span *ngIf="logname?.errors?.['required']">
+                     <h6>this field is required</h6>   
+                    </span>  
+                    
+              
+                    <span *ngIf="logname?.errors?.['pattern']">
+                        <h6>pleas enter vailed email</h6>
+                    </span>
+                  </div>
+
+
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label text-white">Password</label>
+                  <input type="password" 
+                  name="passname"
+                  ngModel
+                  #passname="ngModel"
+                  required
+                  class="form-control" 
+                  id="exampleInputPassword1">
+                </div>
+                <div id="emailHelp" class="form-text text-danger" *ngIf="passname.touched&&logname.invalid">
+                    <span *ngIf="passname?.errors?.['required']">
+                        <h6>this field is required</h6>  
+                    </span>
+                </div>
+               
+                <button type="submit" class="btn btn-primary  col-6 m-auto" >Login</button>
+                <h5 class="my-5">Don’t have account ? <a routerLink="/register">Register</a></h5>
+              </form>
+
+        </div>
+    </div>
+</div>  

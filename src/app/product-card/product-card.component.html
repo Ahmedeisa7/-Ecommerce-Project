@@ -1,0 +1,18 @@
+<div class="card h-100 text-bg-secondary ">
+    <img style="height: 350px;" [src]='productitem.thumbnail' class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{productitem.title}}</h5>
+      <p class="card-text" style="height: 100px;">{{productitem.description}}</p>
+      <p class="card-text btn btn-info disabled ">{{productitem.price | currency:' EGP '}}  </p>
+      <p class="card-text btn btn-danger mx-2 btn-block disabled"> Discount : {{productitem.discountPercentage | currency:' EGP '}}</p>
+      <p class="card-text "[ngStyle]="{color: productitem.stock > 0 ? 'green' : 'red'}">{{productitem.stock | stock}}  </p>
+      <div >
+        <a  (click)="redirectToDetails(productitem.id)" class="btn btn-primary ">Details</a>
+        <a routerLink="addto-card" class="btn btn-success mx-4">Add to Card</a>
+      </div>
+     
+    </div>
+    <div class="card-footer">
+      <small class="text-body-secondary">CreatedAt : {{productitem.createdAt |date:'MMM YYY'}}</small>
+    </div>
+  </div>

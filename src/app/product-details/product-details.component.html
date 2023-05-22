@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+        <div class="card h-100 text-bg-secondary ">
+            <div id="carouselExample" class="carousel slide">
+                <div class="carousel-inner">
+                  <div class="carousel-item active" *ngFor="let img of selectedProduct?.images  ">
+                    <img [src]="img" class="d-block w-100" alt="...">
+                  </div>
+                  
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+            <!-- <img style="height: 350px;" [src]='selectedProduct.thumbnail' class="card-img-top" alt="..."> -->
+            <div class="card-body">
+              <h2 class="card-title">{{selectedProduct.title}}</h2>
+              <h6 class="card-text" > Category: {{selectedProduct.category}}</h6>
+              <h6 class="card-text" > Brand: {{selectedProduct.brand}}</h6>
+              <p class="card-text" >{{selectedProduct.description}}</p>
+              <p class="card-text" > Rating: {{selectedProduct.rating}}</p>
+              <div class="d-grid gap-2 col-4 mx-auto" >
+              <p class="card-text btn btn-info disabled ">{{selectedProduct.price | currency:' EGP '}}  </p>
+              <p class="card-text btn btn-danger mx-2 btn-block disabled"> Discount : {{selectedProduct.discountPercentage | currency:' EGP '}}</p>
+              </div>
+              <p class="card-text "[ngStyle]="{color: selectedProduct.stock > 0 ? 'green' : 'red'}">{{selectedProduct.stock | stock}}  </p>
+              <div class="d-grid gap-2 col-8 mx-auto" >
+                <a routerLink="addto-card" class="btn btn-success mx-4 ">Add to Card</a>
+              </div>
+             
+            </div>
+            <div class="card-footer">
+              <small class="text-body-secondary">CreatedAt : {{selectedProduct.createdAt |date:'MMM YYY'}}</small>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>
+

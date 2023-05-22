@@ -1,0 +1,121 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 mx-auto bg-secondary">
+            <form class="my-5" [formGroup]="registerForm" (ngSubmit)="submitRegisterForm()">
+          
+                
+                <div class="mb-3">
+                    <label for="exampleInputText " class="form-label text-white">Name</label>
+                    <input type="text" 
+                    class="form-control" 
+                    id="exampleInputText" 
+                    aria-describedby="textHelp"
+                    formControlName="name">
+  
+  
+                    <div id="textHelp" class="form-text text-danger" *ngIf="registerForm.controls['name'].touched&&registerForm.controls['name'].invalid">
+
+                      <span *ngIf="registerForm.controls['name'].errors?.['required']">
+                       <h6>this field is required</h6>   
+                      </span>  
+                      
+                
+                      <span *ngIf="registerForm.controls['name'].errors?.['minlength']">
+                          <h6>minlength is 3 char </h6>
+                      </span>
+                    </div>
+                  </div>
+
+                
+
+
+
+
+
+
+                 <div class="mb-3">
+                    <label for="exampleInputEmail1 " class="form-label text-white">Email address</label>
+                    <input type="email" 
+                    class="form-control" 
+                    id="exampleInputEmail1" 
+                    aria-describedby="emailHelp"
+                    formControlName="email">
+  
+  
+                    <div id="emailHelp" class="form-text text-danger" *ngIf="registerForm.controls['email'].touched&&registerForm.controls['email'].invalid">
+
+                      <span *ngIf="registerForm.controls['email'].errors?.['required']">
+                       <h6>this field is required</h6>   
+                      </span>  
+                      
+                
+                      <span *ngIf="registerForm.controls['email'].errors?.['pattern']">
+                          <h6>please enter a valid email </h6>
+                      </span>
+                    </div>
+                  </div>
+
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">@</span>
+                    <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1"formControlName="userName">
+
+                    <div id="basic-addon1" class="form-text text-danger" *ngIf="registerForm.controls['userName'].touched&&registerForm.controls['userName'].invalid">
+
+                      <span *ngIf="registerForm.controls['userName'].errors?.['required']">
+                       <h6>this field is required</h6>   
+                      </span>  
+                      
+                
+                      <span *ngIf="registerForm.controls['userName'].errors?.['pattern']">
+                          <h6>please enter a valid userName </h6>
+                      </span>
+                    </div>
+
+                  </div>
+
+
+
+                <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label text-white">Password</label>
+                  <input type="password" 
+                  formControlName="password"
+                  class="form-control" 
+                  id="exampleInputPassword1">
+                </div>
+                <div id="basic-addon1" class="form-text text-danger" *ngIf="registerForm.controls['password'].touched&&registerForm.controls['password'].invalid">
+
+                  <span *ngIf="registerForm.controls['password'].errors?.['required']">
+                   <h6>this field is required</h6>   
+                  </span>  
+                  <span *ngIf="registerForm.controls['password'].errors?.['minlength']">
+                    <h6>Password must be more than 8 char</h6>   
+                   </span> 
+                  
+            
+                  <span *ngIf="registerForm.controls['password'].errors?.['pattern']">
+                      <h6>please enter a valid Password </h6>
+                  </span>
+                </div>
+
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label text-white">Confirm Password</label>
+                    <input type="password" 
+                    formControlName="confirmpassword"
+                    class="form-control" 
+                    id="exampleInputPassword1">
+                  </div>
+                  <div id="basic-addon1" class="form-text text-danger" *ngIf="registerForm.controls['confirmpassword'].touched&&registerForm.controls['confirmpassword'].invalid">
+
+                    <span *ngIf="registerForm.controls['confirmpassword'].errors?.['confirmassword']">
+                     <h6>shoud be coifirmed </h6>   
+                    </span>  
+                  
+                  </div>
+  
+                <button type="submit" class="btn btn-primary  col-6 m-auto" >Login</button>
+                <h5 class="my-5">Already have account!  <a routerLink="/login">login</a></h5>
+              </form>
+
+        </div>
+    </div>
+</div>  
